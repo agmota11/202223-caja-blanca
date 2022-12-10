@@ -51,7 +51,7 @@ public class Editor {
 	 * Leemos un fichero de entrada con líneas de texto que cargaremos en nuestro
 	 * editor.
 	 * 
-	 * @param nombre del fichero del que leemos
+	 * @param nombreFichero del fichero del que leemos
 	 */
 	public void cargarEditor(String nombreFichero) {
 		File archivo = null;

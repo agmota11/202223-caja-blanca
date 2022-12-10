@@ -15,7 +15,7 @@ import java.util.TreeMap;
 
 import com.cajanegra.SingleLinkedListImpl;
 
-class Grafo {
+public class Grafo {
 
 	private Map<Integer, List<Arco>> listAdy;
 	private List<Arco> listaArcos;

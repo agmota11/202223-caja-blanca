@@ -1,6 +1,6 @@
 package com.cajablanca.grafo;
 
-class Arco
+public class Arco
 {
 	private int origen, destino, peso;
 	 
