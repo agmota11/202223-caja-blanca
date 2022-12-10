@@ -7,24 +7,22 @@ import java.io.PrintStream;
 
 public class GrafoTest {
 
-    private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private static ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private static final PrintStream originalOut = System.out;
     public static Grafo grafoVacio;
     public static Grafo grafoDosNodos;
     public static Grafo grafoUnNodo;
 
-    @BeforeAll
-    static void setUp() {
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @AfterAll
-    static void tearDown() {
+    @AfterEach
+    public void afterEach() {
         System.setOut(originalOut);
     }
 
     @BeforeEach
     public void beforeEach() {
+        outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
         grafoVacio = new Grafo();
 
         grafoUnNodo = new Grafo();
@@ -55,6 +53,33 @@ public class GrafoTest {
                 "Adyacentes de 1: 2 \r\n",
                 outContent.toString(),
                 "La salida debería coincidir"
+        );
+    }
+
+    @Test()
+    @DisplayName("TodosVisitados-Lista adyacencia vacia")
+    public void todosVisitadosListaVacia() {
+        Assertions.assertTrue(
+                grafoUnNodo.todosVisitados(),
+                "Debería no haber arcos"
+        );
+    }
+
+    @Test()
+    @DisplayName("TodosVisitados-False")
+    public void todosVisitadosFalse() {
+        Assertions.assertFalse(
+                grafoUnNodo.todosVisitados(),
+                "Debería haber arcos y estar visitados"
+        );
+    }
+
+    @Test()
+    @DisplayName("TodosVisitados-True")
+    public void todosVisitadosTrue() {
+        Assertions.assertTrue(
+                grafoUnNodo.todosVisitados(),
+                "Debería haber arcos y no estar visitados"
         );
     }
 }
