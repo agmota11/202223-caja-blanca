@@ -13,8 +13,6 @@ import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.TreeMap;
 
-import com.cajanegra.SingleLinkedListImpl;
-
 public class Grafo {
 
 	private Map<Integer, List<Arco>> listAdy;
